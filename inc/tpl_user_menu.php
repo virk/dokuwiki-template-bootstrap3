@@ -112,7 +112,7 @@ if ($use_avatar) {
       <li class="dropdown-header"><?php echo $lang['user_tools'] ?></li>
 
       <?php echo bootstrap3_action_item('admin', 'fa fa-fw fa-cogs') ?>
-      <?php echo bootstrap3_action_item('profile', 'fa fa-fw fa-refresh') ?>
+      <?php echo bootstrap3_action_item('profile', 'fa fa-fw fa-sync') ?>
 
       <li class="divider"></li>
 

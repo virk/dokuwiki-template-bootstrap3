@@ -160,16 +160,50 @@
 
 
 /* Template Mixins */
+
+.fa-wrapper() {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  text-align: center;
+  width: 1.25em;
+  padding-right: .25em;
+}
+
+.far-wrapper() {
+  .fa-wrapper();
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+}
+
+.fab-wrapper() {
+  .fa-wrapper();
+  font-family: 'Font Awesome 5 Brands';
+}
+
+.fas-wrapper() {
+  .fa-wrapper();
+  font-family: 'Font Awesome 5 Solid';
+}
+
+.fab-icon(@icon_name) {
+  content: '@{icon_name}';
+  .fab-wrapper();
+}
+
+.fas-icon(@icon_name) {
+  content: '@{icon_name}';
+  .fas-wrapper();
+}
+
+.far-icon(@icon_name) {
+  content: '@{icon_name}';
+  .far-wrapper();
+}
+
 .fa-icon(@icon_name) {
   content: '@{icon_name}';
   .fa-wrapper();
-}
-
-.fa-wrapper() {
-  font: normal normal normal 14px/1 FontAwesome;
-  display: inline-block;
-  width: 1.28571429em;
-  font-size: inherit;
 }
 
 .icon(@icon_name) {

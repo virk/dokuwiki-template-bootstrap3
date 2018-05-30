@@ -14,7 +14,7 @@ if ($pagesize = bootstrap3_conf('domParserMaxPageSize')) {
   define('MAX_FILE_SIZE', $pagesize);
 }
 
-include_once(dirname(__FILE__) . '/inc/simple_html_dom.php');
+include_once(dirname(__FILE__) . '/simple_html_dom.php');
 
 /**
  * copied from core (available since Detritus)
@@ -240,7 +240,7 @@ function bootstrap3_toolsevent($toolsname, $items, $view='main', $return = false
 
         case 'export_pdf':
         case 'export_odt_pdf':
-          $icon = 'file-pdf-o';
+          $icon = 'file-pdf';
           break;
 
         case 'plugin_move':
@@ -748,7 +748,7 @@ function bootstrap3_html_msgarea() {
 
         case 'notify':
           $level = 'warning';
-          $icon  = 'fa-warning';
+          $icon  = 'fa-exclamation-triangle';
           break;
 
         case 'success':
@@ -789,7 +789,7 @@ function bootstrap3_tools($add_icons = true) {
     'icon'    => 'fa fa-fw fa-user',
     'actions' => array(
       'admin'    => array('icon' => 'fa fa-fw fa-cogs'),
-      'profile'  => array('icon' => 'fa fa-fw fa-refresh'),
+      'profile'  => array('icon' => 'fa fa-fw fa-sync'),
       'register' => array('icon' => 'fa fa-fw fa-user-plus'),
       'login'    => array('icon' => 'fa fa-fw fa-sign-'.(!empty($_SERVER['REMOTE_USER']) ? 'out' : 'in')),
     )
@@ -799,7 +799,7 @@ function bootstrap3_tools($add_icons = true) {
     'icon'    => 'fa fa-fw fa-cubes',
     'actions' => array(
       'recent' => array('icon' => 'fa fa-fw fa-list-alt'),
-      'media'  => array('icon' => 'fa fa-fw fa-picture-o'),
+      'media'  => array('icon' => 'fa fa-fw fa-file-image'),
       'index'  => array('icon' => 'fa fa-fw fa-sitemap'),
     )
   );
@@ -807,14 +807,14 @@ function bootstrap3_tools($add_icons = true) {
   $tools['page'] = array(
     'icon'    => 'fa fa-fw fa-file',
     'actions' => array(
-      'edit'       => array('icon' => 'fa fa-fw fa-' . (($ACT == 'edit') ? 'file-text-o' : 'pencil-square-o')),
-      'purge'      => array('icon' => 'fa fa-fw fa-eraser'),
-      'discussion' => array('icon' => 'fa fa-fw fa-comments'),
-      'revert'     => array('icon' => 'fa fa-fw fa-repeat'),
-      'revisions'  => array('icon' => 'fa fa-fw fa-clock-o'),
-      'backlink'   => array('icon' => 'fa fa-fw fa-link'),
-      'subscribe'  => array('icon' => 'fa fa-fw fa-envelope-o'),
-      'top'        => array('icon' => 'fa fa-fw fa-chevron-up'),
+      'edit'       => array('icon' => 'far fa-fw fa-' . (($ACT == 'edit') ? 'file-alt' : 'edit')),
+      'purge'      => array('icon' => 'far fa-fw fa-eraser'),
+      'discussion' => array('icon' => 'far fa-fw fa-comments'),
+      'revert'     => array('icon' => 'fa  fa-fw fa-redo'),
+      'revisions'  => array('icon' => 'far fa-fw fa-clock'),
+      'backlink'   => array('icon' => 'fa  fa-fw fa-link'),
+      'subscribe'  => array('icon' => 'far fa-fw fa-envelope'),
+      'top'        => array('icon' => 'far fa-fw fa-chevron-up'),
     )
   );
 
@@ -1273,8 +1273,7 @@ function bootstrap3_page_browser_title() {
       if (count($ns_parts) > 1) {
 
         foreach ($ns_parts as $ns_part) {
-          $ns_page .= "$ns_part:";
-          $ns_pages[] = $ns_page;
+          $ns_pages[] = "$ns_part:";
         }
 
         $ns_pages = array_unique($ns_pages);
@@ -1588,11 +1587,11 @@ function bootstrap3_pageinfo($ret = false) {
     $out = '<ul class="list-inline">';
 
     if (in_array('filename', $page_info)) {
-      $out .= sprintf('<li><i class="fa fa-fw fa-file-text-o text-muted"></i> <span title="%s">%s</span></li>', $fn_full, $fn);
+      $out .= sprintf('<li><i class="far fa-fw fa-file-alt text-muted"></i> <span title="%s">%s</span></li>', $fn_full, $fn);
     }
 
     if (in_array('date', $page_info)) {
-      $out .= sprintf('<li><i class="fa fa-fw fa-calendar text-muted"></i> %s <span title="%s">%s</span></li>', $lang['lastmod'],  dformat($INFO['lastmod']), $date);
+      $out .= sprintf('<li><i class="fa fa-fw fa-calendar-alt text-muted"></i> %s <span title="%s">%s</span></li>', $lang['lastmod'],  dformat($INFO['lastmod']), $date);
     }
 
     if (in_array('editor', $page_info)) {
@@ -1726,7 +1725,8 @@ function bootstrap3_metaheaders(Doku_Event &$event, $param) {
   }
 
   # FontAwesome
-  $stylesheets[] = $tpl_basedir . 'assets/font-awesome/css/font-awesome.min.css';
+  #$stylesheets[] = $tpl_basedir . 'assets/font-awesome/css/font-awesome.min.css';
+  $stylesheets[] = $tpl_basedir . 'assets/font-awesome/css/fontawesome-all.min.css';
 
   # Bootstrap JavaScript
   $scripts[] = $tpl_basedir . 'assets/bootstrap/js/bootstrap.min.js';
@@ -1997,7 +1997,7 @@ function bootstrap3_content($content) {
       case 'notify':
       case 'msg notify':
         $elm->class     = 'alert alert-warning';
-        $elm->innertext = '<i class="fa fa-fw fa-warning"></i> ' . $elm->innertext;
+        $elm->innertext = '<i class="fa fa-fw fa-exclamation-triangle"></i> ' . $elm->innertext;
         break;
 
     }
@@ -2072,7 +2072,7 @@ function bootstrap3_content($content) {
     foreach ($html->find('#dw__register') as $elm) {
 
       foreach ($elm->find('legend') as $title) {
-        $title->innertext = '<i class="fa fa-vcard-o"></i> ' . $title->innertext;
+        $title->innertext = '<i class="fa fa-address-card"></i> ' . $title->innertext;
       }
 
       foreach ($elm->find('[type=submit]') as $btn) {
@@ -2124,7 +2124,7 @@ function bootstrap3_content($content) {
     }
 
     foreach ($html->find('.idx .wikilink1') as $elm) {
-      $elm->innertext = '<i class="fa fa-file-text-o text-muted"></i> ' . $elm->innertext;
+      $elm->innertext = '<i class="far fa-file-alt text-muted"></i> ' . $elm->innertext;
     }
 
     $content = $html->save();
@@ -2200,7 +2200,7 @@ function bootstrap3_content($content) {
 
           $elm->class .= ' btn-success';
           if ($elm->tag == 'button') {
-            $elm->innertext = '<i class="fa fa-refresh"></i> ' . $elm->innertext;
+            $elm->innertext = '<i class="fa fa-sync"></i> ' . $elm->innertext;
           }
 
         }
@@ -2268,7 +2268,7 @@ function bootstrap3_content($content) {
 
       foreach ($html->find('button[name=fn[delete]]') as $elm) {
         $elm->class    .= ' btn btn-danger';
-        $elm->innertext = '<i class="fa fa-trash"></i> ' . $elm->innertext;
+        $elm->innertext = '<i class="fa fa-trash-alt"></i> ' . $elm->innertext;
       }
 
       foreach ($html->find('button[name=fn[add]]') as $elm) {
@@ -2401,18 +2401,18 @@ function bootstrap3_content($content) {
 
       $admin_sections = array(
       // Section                      Insert Before           Icon
-        'theme'             => array( 'bootstrapTheme',       'fa-tint'      ),
-        'sidebar'           => array( 'sidebarPosition',      'fa-columns'   ),
-        'navbar'            => array( 'inverseNavbar',        'fa-navicon'   ),
-        'semantic'          => array( 'semantic',             'fa-share-alt' ),
-        'layout'            => array( 'fluidContainer',       'fa-desktop'   ),
-        'toc'               => array( 'tocAffix',             'fa-list'      ),
-        'discussion'        => array( 'showDiscussion',       'fa-comments'  ),
-        'avatar'            => array( 'useAvatar',            'fa-user'      ),
-        'cookie_law'        => array( 'showCookieLawBanner',  'fa-legal'     ),
-        'google_analytics'  => array( 'useGoogleAnalytics',   'fa-google'    ),
-        'browser_title'     => array( 'browserTitle',         'fa-header'    ),
-        'page'              => array( 'showPageInfo',         'fa-file'      )
+        'theme'             => array( 'bootstrapTheme',       'fa fa-tint'      ),
+        'sidebar'           => array( 'sidebarPosition',      'fa fa-columns'   ),
+        'navbar'            => array( 'inverseNavbar',        'fa fa-bars'      ),
+        'semantic'          => array( 'semantic',             'fa fa-share-alt' ),
+        'layout'            => array( 'fluidContainer',       'fa fa-desktop'   ),
+        'toc'               => array( 'tocAffix',             'fa fa-list'      ),
+        'discussion'        => array( 'showDiscussion',       'fa fa-comments'  ),
+        'avatar'            => array( 'useAvatar',            'fa fa-user'      ),
+        'cookie_law'        => array( 'showCookieLawBanner',  'fa fa-gavel'     ),
+        'google_analytics'  => array( 'useGoogleAnalytics',   'fab fa-google'   ),
+        'browser_title'     => array( 'browserTitle',         'fa fa-heading'   ),
+        'page'              => array( 'showPageInfo',         'fa fa-file'      )
       );
 
       foreach ($admin_sections as $section => $items) {
@@ -2421,7 +2421,7 @@ function bootstrap3_content($content) {
         $icon   = $items[1];
 
         $content = preg_replace('/<tr(.*)>\s+<td(.*)>\s+<span(.*)>(tpl»bootstrap3»'.$search.')<\/span>/',
-                                '</table></div></fieldset><fieldset id="bootstrap3__'.$section.'"><legend><i class="fa '.$icon.'"></i> '.tpl_getLang("config_$section").'</legend><div class="table-responsive"><table class="table table-hover table-condensed inline"><tr$1><td$2><span$3>$4</span>', $content);
+                                '</table></div></fieldset><fieldset id="bootstrap3__'.$section.'"><legend><i class="'.$icon.'"></i> '.tpl_getLang("config_$section").'</legend><div class="table-responsive"><table class="table table-hover table-condensed inline"><tr$1><td$2><span$3>$4</span>', $content);
 
       }
 
@@ -2452,7 +2452,7 @@ function bootstrap3_content($content) {
       $elm->class .= ' btn btn-default';
 
       if ($elm->tag == 'button') {
-        $elm->innertext = '<i class="fa fa-file-text-o"></i> ' . $elm->innertext;
+        $elm->innertext = '<i class="far fa-file-text-alt"></i> ' . $elm->innertext;
       }
 
     }
@@ -2462,7 +2462,7 @@ function bootstrap3_content($content) {
       $elm->class .= ' btn btn-danger';
 
       if ($elm->tag == 'button') {
-        $elm->innertext = '<i class="fa fa-close"></i> ' . $elm->innertext;
+        $elm->innertext = '<i class="fa fa-times"></i> ' . $elm->innertext;
       }
 
     }

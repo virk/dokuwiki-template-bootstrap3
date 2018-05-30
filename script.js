@@ -182,4 +182,6 @@ jQuery(document).ready(function() {
 
   }
 
+  /* DOKUWIKI:include js/migration.js */
+
 });

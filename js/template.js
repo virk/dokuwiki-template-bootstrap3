@@ -448,7 +448,7 @@ jQuery(document).on('bootstrap3:alerts', function(event) {
     jQuery('div.notify')
       .removeClass('notify')
       .addClass('alert alert-warning')
-      .prepend('<i class="fa fa-fw fa-warning"/> ');
+      .prepend('<i class="fa fa-fw fa-exclamation-triangle"/> ');
 
   }, 0);
 
@@ -584,7 +584,7 @@ jQuery(document).on('bootstrap3:mode-index', function(event) {
       var $page = jQuery(this);
 
       if (! $page.find('i').length) {
-        $page.prepend('<i class="fa fa-fw fa-file-text-o text-muted"/> ');
+        $page.prepend('<i class="far fa-fw fa-file-alt text-muted"/> ');
       }
 
     });

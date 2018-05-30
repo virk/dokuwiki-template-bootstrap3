@@ -8,8 +8,8 @@
  */
 
 if (!defined('DOKU_INC')) die();                        // must be run from within DokuWiki
-@require_once(dirname(__FILE__).'/tpl_functions.php');  // include hook for template functions
-include_once(dirname(__FILE__).'/tpl_global.php');      // Include template global variables
+@require_once(dirname(__FILE__).'/inc/tpl_functions.php');  // include hook for template functions
+include_once(dirname(__FILE__).'/inc/tpl_global.php');      // Include template global variables
 header('X-UA-Compatible: IE=edge,chrome=1');
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang'] ?>"
@@ -40,7 +40,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
       // Top-Header DokuWiki page
       if ($ACT == 'show') tpl_include_page('topheader', 1, 1, bootstrap3_conf('useACL'));
 
-      require_once('tpl_navbar.php');
+      require_once('inc/tpl_navbar.php');
 
       tpl_includeFile('header.html');
 
@@ -56,7 +56,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
       <?php tpl_includeFile('social.html') ?>
 
-      <?php require_once('tpl_breadcrumbs.php'); ?>
+      <?php require_once('inc/tpl_breadcrumbs.php'); ?>
 
       <p class="pageId text-right small">
         <?php if(bootstrap3_conf('showPageId')): ?><span class="label label-primary"><?php echo hsc($ID) ?></span><?php endif; ?>
@@ -74,7 +74,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
       <article id="dokuwiki__content" class="<?php echo bootstrap3_container_grid() ?>" <?php echo ((bootstrap3_conf('semantic')) ? sprintf('itemscope itemtype="http://schema.org/%s" itemref="dw__license"', bootstrap3_conf('schemaOrgType')) : '') ?>>
 
-        <?php require_once('tpl_page_tools.php'); // Page Tools ?>
+        <?php require_once('inc/tpl_page_tools.php'); // Page Tools ?>
 
         <div class="<?php echo ($page_on_panel ? 'panel panel-default' : 'no-panel') ?>" <?php echo ((bootstrap3_conf('semantic')) ? 'itemprop="articleBody"' : '') ?>>
           <div class="page <?php echo ($page_on_panel ? 'panel-body' : '') ?>">
@@ -82,7 +82,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <?php
 
               // Page icons (print, email, share link, etc.)
-              require_once('tpl_page_icons.php');
+              require_once('inc/tpl_page_icons.php');
 
               tpl_flush(); /* flush the output buffer */
 
@@ -136,7 +136,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
           <?php if (bootstrap3_conf('showLoginOnFooter')): ?>
           <span class="loginLink hidden-print">
-            <?php echo tpl_action('login', 1, 0, 1, '<i class="fa fa-sign-in"></i> '); ?>
+            <?php echo tpl_action('login', 1, 0, 1, '<i class="fa fa-sign-in-alt"></i> '); ?>
           </span>
           <?php endif; ?>
 
@@ -149,17 +149,14 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     </main>
 
     <?php
-      // DokuWiki badges
-#      require_once('tpl_badges.php');
-
       // Footer hook
       tpl_includeFile('footer.html');
 
       // Footer DokuWiki page
-      require_once('tpl_footer.php');
+      require_once('inc/tpl_footer.php');
 
       // Cookie-Law banner
-      require_once('tpl_cookielaw.php');
+      require_once('inc/tpl_cookielaw.php');
 
       // Provide DokuWiki housekeeping, required in all templates
       tpl_indexerWebBug();

@@ -74,32 +74,32 @@ if (in_array('help', $page_icons)) {
       </li>
       <?php if (in_array('google-plus', $social_share_providers)): ?>
       <li>
-        <a href="#" class="share-google-plus" title="<?php echo tpl_getLang('share_on') ?> Google+"><i class="fa fa-fw fa-lg fa-google-plus-square"></i> Google+</a>
+        <a href="#" class="share-google-plus" title="<?php echo tpl_getLang('share_on') ?> Google+"><i class="fab fa-fw fa-lg fa-google-plus"></i> Google+</a>
       </li>
       <?php endif;
             if (in_array('twitter', $social_share_providers)): ?>
       <li>
-        <a href="#" class="share-twitter" title="<?php echo tpl_getLang('share_on') ?> Twitter"><i class="fa fa-fw fa-lg fa-twitter-square"></i> Twitter</a>
+        <a href="#" class="share-twitter" title="<?php echo tpl_getLang('share_on') ?> Twitter"><i class="fab fa-fw fa-lg fa-twitter"></i> Twitter</a>
       </li>
       <?php endif;
             if (in_array('linkedin', $social_share_providers)): ?>
       <li>
-        <a href="#" class="share-linkedin" title="<?php echo tpl_getLang('share_on') ?> LinkedIn"><i class="fa fa-fw fa-lg fa-linkedin-square"></i> LinkedIn</a>
+        <a href="#" class="share-linkedin" title="<?php echo tpl_getLang('share_on') ?> LinkedIn"><i class="fab fa-fw fa-lg fa-linkedin"></i> LinkedIn</a>
       </li>
       <?php endif;
             if (in_array('facebook', $social_share_providers)): ?>
       <li>
-        <a href="#" class="share-facebook" title="<?php echo tpl_getLang('share_on') ?> Facebook"><i class="fa fa-fw fa-lg fa-facebook-square"></i> Facebook</a>
+        <a href="#" class="share-facebook" title="<?php echo tpl_getLang('share_on') ?> Facebook"><i class="fab fa-fw fa-lg fa-facebook"></i> Facebook</a>
       </li>
       <?php endif;
             if (in_array('pinterest', $social_share_providers)): ?>
       <li>
-        <a href="#" class="share-pinterest" title="<?php echo tpl_getLang('share_on') ?> Pinterest"><i class="fa fa-fw fa-lg fa-pinterest"></i> Pinterest</a>
+        <a href="#" class="share-pinterest" title="<?php echo tpl_getLang('share_on') ?> Pinterest"><i class="fab fa-fw fa-lg fa-pinterest"></i> Pinterest</a>
       </li>
       <?php endif;
             if (in_array('telegram', $social_share_providers)): ?>
       <li>
-        <a href="#" class="share-telegram" title="<?php echo tpl_getLang('share_on') ?> Telegram"><i class="fa fa-fw fa-lg fa-telegram"></i> Telegram</a>
+        <a href="#" class="share-telegram" title="<?php echo tpl_getLang('share_on') ?> Telegram"><i class="fab fa-fw fa-lg fa-telegram"></i> Telegram</a>
       </li>
       <?php endif;
             if (in_array('whatsapp', $social_share_providers) && $INFO['ismobile']): ?>
@@ -109,7 +109,7 @@ if (in_array('help', $page_icons)) {
       <?php endif;
             if (in_array('yammer', $social_share_providers)): ?>
       <li>
-        <a href="#" class="share-yammer" title="<?php echo tpl_getLang('share_on') ?> Yammer"><i class="fa fa-fw fa-lg fa-yahoo"></i> Yammer</a>
+        <a href="#" class="share-yammer" title="<?php echo tpl_getLang('share_on') ?> Yammer"><i class="fab fa-fw fa-lg fa-yahoo"></i> Yammer</a>
       </li>
       <?php endif; ?>
     </ul>

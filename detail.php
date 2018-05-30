@@ -10,8 +10,8 @@
  */
 
 if (!defined('DOKU_INC')) die();                        // must be run from within DokuWiki
-@require_once(dirname(__FILE__).'/tpl_functions.php');  // include hook for template functions
-include_once(dirname(__FILE__).'/tpl_global.php');      // Include template global variables
+@require_once(dirname(__FILE__).'/inc/tpl_functions.php');  // include hook for template functions
+include_once(dirname(__FILE__).'/inc/tpl_global.php');      // Include template global variables
 header('X-UA-Compatible: IE=edge,chrome=1');
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang']?>"
@@ -46,7 +46,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
       // Top-Header DokuWiki page
       if ($ACT == 'show') tpl_include_page('topheader', 1, 1, bootstrap3_conf('useACL'));
 
-      require_once('tpl_navbar.php');
+      require_once('inc/tpl_navbar.php');
 
       tpl_includeFile('header.html');
 
@@ -62,7 +62,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
       <?php tpl_includeFile('social.html') ?>
 
-      <?php require_once('tpl_breadcrumbs.php'); ?>
+      <?php require_once('inc/tpl_breadcrumbs.php'); ?>
 
       <p class="pageId text-right small">
         <?php if(bootstrap3_conf('showPageId')): ?><span class="label label-primary"><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG)); ?></span><?php endif; ?>
@@ -79,19 +79,19 @@ header('X-UA-Compatible: IE=edge,chrome=1');
       <div class="<?php echo ($page_on_panel ? 'panel panel-default' : 'no-panel') ?>">
         <div class="page <?php echo ($page_on_panel ? 'panel-body' : '') ?>">
 
-          <?php require_once('tpl_page_icons.php'); ?>
+          <?php require_once('inc/tpl_page_icons.php'); ?>
 
           <?php if ($ERROR): print $ERROR; ?>
           <?php else: ?>
           <?php if ($REV) echo p_locale_xhtml('showrev'); ?>
 
           <h1 class="page-header">
-            <i class="fa fa-picture-o text-muted"></i> <?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?>
+            <i class="fa fa-file-image text-muted"></i> <?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?>
           </h1>
 
           <p class="pull-right hidden-print list-inline">
             <button type="button" class="btn btn-primary btn-xs" title="Info" data-toggle="modal" data-target="#detail-dialog"><i class="fa fa-fw fa-info-circle"></i></button>
-            <a href="<?php echo ml($IMG, array('cache'=> $INPUT->str('cache'),'rev'=>$REV), true, '&'); ?>" target="_blank" class="btn btn-default btn-xs" title="<?php echo $lang['js']['mediadirect']; ?>"><i class="fa fa-fw fa-arrows-alt"></i></a>
+            <a href="<?php echo ml($IMG, array('cache'=> $INPUT->str('cache'),'rev'=>$REV), true, '&'); ?>" target="_blank" class="btn btn-default btn-xs" title="<?php echo $lang['js']['mediadirect']; ?>"><i class="fa fa-fw fa-expand-arrows-alt"></i></a>
           </p>
 
           <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
@@ -101,7 +101,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
           <div class="hidden-print pull-right">
             <?php
               $back_to   = bootstrap3_action_item('img_backto', 'fa fa-fw fa-arrow-left', true);
-              $media_mgr = bootstrap3_action_item('mediaManager', 'fa fa-fw fa-picture-o', true);
+              $media_mgr = bootstrap3_action_item('mediaManager', 'fa fa-fw fa-file-image', true);
               $back_to   = str_replace('action', 'action btn btn-success', $back_to);
               $media_mgr = str_replace('action', 'action btn btn-default', $media_mgr);
               echo $back_to . "\n" . $media_mgr;
@@ -141,7 +141,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
                   <?php if (isset($lang['media_acl_warning'])): // This message is available from release 2015-08-10 "Detritus" ?>
                   <div class="alert alert-warning">
-                    <i class="fa fa-warning"></i> <?php echo $lang['media_acl_warning']; ?>
+                    <i class="fa fa-exclamation-triangle"></i> <?php echo $lang['media_acl_warning']; ?>
                   </div>
                   <?php endif; ?>
 
@@ -168,7 +168,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
         <?php if (bootstrap3_conf('showLoginOnFooter')): ?>
         <span class="loginLink hidden-print">
-          <?php echo tpl_action('login', 1, 0, 1, '<i class="fa fa-sign-in"></i> '); ?>
+          <?php echo tpl_action('login', 1, 0, 1, '<i class="fa fa-sign-in-alt"></i> '); ?>
         </span>
         <?php endif; ?>
 
@@ -180,7 +180,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
       <?php if (bootstrap3_conf('showLoginOnFooter')): ?>
       <span class="loginLink hidden-print">
-        <?php echo tpl_action('login', 1, 0, 1, '<i class="fa fa-sign-in"></i> '); ?>
+        <?php echo tpl_action('login', 1, 0, 1, '<i class="fa fa-sign-in-alt"></i> '); ?>
       </span>
       <?php endif; ?>
 
@@ -191,10 +191,10 @@ header('X-UA-Compatible: IE=edge,chrome=1');
       tpl_includeFile('footer.html');
 
       // Footer DokuWiki page
-      require_once('tpl_footer.php');
+      require_once('inc/tpl_footer.php');
 
       // Cookie-Law banner
-      require_once('tpl_cookielaw.php');
+      require_once('inc/tpl_cookielaw.php');
     ?>
 
     <a href="#dokuwiki__top" class="back-to-top hidden-print btn btn-default btn-sm" title="<?php echo $lang['skip_to_content'] ?>" accesskey="t"><i class="fa fa-chevron-up"></i></a>
