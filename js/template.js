@@ -51,7 +51,7 @@ jQuery(document).on('bootstrap3:init', function(event) {
 
     // Personal Home-Page icon
     if (NS == 'user' && dw_mode('show') && ! jQuery('.notFound').length) {
-      jQuery('.mode_show #dokuwiki__content h1').prepend('<i class="mdi mdi-account"/> ');
+      jQuery('.mode_show #dokuwiki__content h1').prepend('<i class="icon icon-account"/> ');
     }
 
     // Scrolling animation (on TOC and FootNotes)
@@ -436,25 +436,25 @@ jQuery(document).on('bootstrap3:alerts', function(event) {
     jQuery('div.info')
       .removeClass('info')
       .addClass('alert alert-info')
-      .prepend('<i class="mdi mdi-18px mdi-information"/> ');
+      .prepend('<i class="icon icon-18px mdi-information"/> ');
 
     // Error
     jQuery('div.error')
       .removeClass('error')
       .addClass('alert alert-danger')
-      .prepend('<i class="mdi mdi-18px mdi-alert-octagon"/> ');
+      .prepend('<i class="icon icon-18px mdi-alert-octagon"/> ');
 
     // Success
     jQuery('div.success')
       .removeClass('success')
       .addClass('alert alert-success')
-      .prepend('<i class="mdi mdi-18px mdi-check-circle"/> ');
+      .prepend('<i class="icon icon-18px mdi-check-circle"/> ');
 
     // Notify
     jQuery('div.notify')
       .removeClass('notify')
       .addClass('alert alert-warning')
-      .prepend('<i class="mdi mdi-18px mdi-alert"/> ');
+      .prepend('<i class="icon icon-18px mdi-alert"/> ');
 
   }, 0);
 
@@ -590,7 +590,7 @@ jQuery(document).on('bootstrap3:mode-index', function(event) {
       var $page = jQuery(this);
 
       if (! $page.find('i').length) {
-        $page.prepend('<i class="mdi mdi-file-document text-muted"/> ');
+        $page.prepend('<i class="icon icon-file-document text-muted"/> ');
       }
 
     });
@@ -772,7 +772,7 @@ jQuery(document).on('bootstrap3:collapse-sections', function(event) {
 
       $headings
         .css('cursor', 'pointer')
-        .prepend(jQuery('<i class="mdi mdi-chevron-down py-4 mdi-24px"/>'));
+        .prepend(jQuery('<i class="icon icon-chevron-down py-4 mdi-24px"/>'));
 
       $headings.on('click', function() {
 
