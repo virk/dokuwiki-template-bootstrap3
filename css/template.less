@@ -590,6 +590,16 @@ div#picker2 {
   .share-yammer      i { color: #5AA8BF; }
   .share-reddit      i { color: #FF4500; }
 
+  .share-google-plus svg { fill: #DC4E41; }
+  .share-twitter     svg { fill: #55ACEE; }
+  .share-linkedin    svg { fill: #0077B5; }
+  .share-facebook    svg { fill: #3B5998; }
+  .share-whatsapp    svg { fill: #43D854; }
+  .share-pinterest   svg { fill: #BD081C; }
+  .share-telegram    svg { fill: #0088CC; }
+  .share-yammer      svg { fill: #5AA8BF; }
+  .share-reddit      svg { fill: #FF4500; }
+
 }
 
 
@@ -761,7 +771,50 @@ body.yeti #dw__user_menu dl {
   color: white;
 }
 
-/* SVG icon for DokuWiki Actions */
+/* SVG icon for DokuWiki */
+
+.icon {
+
+  svg {
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: sub;
+  }
+
+  &.icon-8 svg {
+    width: 8px;
+    height: 8px;
+  }
+  &.icon-12 svg {
+    width: 12px;
+    height: 12px;
+  }
+  &.icon-16 svg {
+    width: 16px;
+    height: 16px;
+  }
+  &.icon-24 svg {
+    width: 24px;
+    height: 24px;
+  }
+  &.icon-22 svg {
+    width: 22px;
+    height: 22px;
+  }
+  &.icon-32 svg {
+    width: 32px;
+    height: 32px;
+  }
+  &.icon-48 svg {
+    width: 48px;
+    height: 48px;
+  }
+  &.icon-64 svg {
+    width: 64px;
+    height: 64px;
+  }
+
+}
 
 .menuitem svg {
   fill: currentColor;
